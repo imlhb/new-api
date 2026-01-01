@@ -370,21 +370,21 @@ export const getTaskLogsColumns = ({
           record.action === TASK_ACTION_REMIX_GENERATE;
         const isSuccess = record.status === 'SUCCESS';
         const isUrl = typeof text === 'string' && /^https?:\/\//.test(text);
+        
         if (isSuccess && isVideoTask && isUrl) {
-          if (isSuccess && isVideoTask && isUrl) {
-            return (
-              <a
-                href='#'
-                onClick={(e) => {
-                  e.preventDefault();
-                  openVideoModal(text);
-                }}
-              >
-                {t('点击预览视频')}
-              </a>
-            );
-          }
+          return (
+            <a
+              href='#'
+              onClick={(e) => {
+                e.preventDefault();
+                openVideoModal(text);
+              }}
+            >
+              {t('点击预览视频')}
+            </a>
+          );
         }
+        
         if (!text) {
           return t('无');
         }
